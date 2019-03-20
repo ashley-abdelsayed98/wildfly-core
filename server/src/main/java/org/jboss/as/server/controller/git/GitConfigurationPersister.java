@@ -128,7 +128,7 @@ public class GitConfigurationPersister extends XmlConfigurationPersister {
             }
             //if comment is not null
             if(status.hasUncommittedChanges() || !noComment) {
-                git.commit().setMessage(message).setAll(true).setNoVerify(true).call();
+                git.commit().setSign(gitRepository.isSign()).setMessage(message).setAll(true).setNoVerify(true).call();
             }
             git.tag().setName(tagName).setMessage(message).call();
         } catch (GitAPIException ex) {

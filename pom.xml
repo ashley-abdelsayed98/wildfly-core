@@ -144,7 +144,7 @@
         <version.com.fasterxml.jackson.core.jackson-databind>2.9.9.3</version.com.fasterxml.jackson.core.jackson-databind>
         <version.com.googlecode.javaewah>1.1.6</version.com.googlecode.javaewah>
         <version.com.io7m.xom>1.2.10</version.com.io7m.xom>
-        <version.com.jcraft.jsch>0.1.54</version.com.jcraft.jsch>
+        <version.com.jcraft.jsch>0.1.55</version.com.jcraft.jsch>
         <version.com.jcraft.jzlib>1.1.1</version.com.jcraft.jzlib>
         <version.commons-io>2.5</version.commons-io>
         <version.commons-lang>2.6</version.commons-lang>
@@ -158,15 +158,16 @@
         <version.org.aesh-readline>2.0</version.org.aesh-readline>
         <version.org.apache.ds>2.0.0-M15</version.org.apache.ds>
         <!-- TODO Elytron - Bump to M17 -->
-        <version.org.apache.httpcomponents.httpclient>4.5.4</version.org.apache.httpcomponents.httpclient>
-        <version.org.apache.httpcomponents.httpcore>4.4.5</version.org.apache.httpcomponents.httpcore>
+        <version.org.apache.httpcomponents.httpclient>4.5.6</version.org.apache.httpcomponents.httpclient>
+        <version.org.apache.httpcomponents.httpcore>4.4.10</version.org.apache.httpcomponents.httpcore>
         <version.org.apache.maven>3.5.0</version.org.apache.maven>
         <version.org.apache.maven.resolver>1.1.0</version.org.apache.maven.resolver>
         <version.org.apache.xerces>2.12.0.SP02</version.org.apache.xerces>
+        <version.org.bouncycastle>1.60</version.org.bouncycastle>
         <version.org.codehaus.plexus.plexus-utils>3.1.0</version.org.codehaus.plexus.plexus-utils>
         <version.org.codehaus.woodstox.stax2-api>3.1.4</version.org.codehaus.woodstox.stax2-api>
         <version.org.codehaus.woodstox.woodstox-core>5.0.3</version.org.codehaus.woodstox.woodstox-core>
-        <version.org.eclipse.jgit>5.0.2.201807311906-r</version.org.eclipse.jgit>
+        <version.org.eclipse.jgit>5.5.0.201909110433-r</version.org.eclipse.jgit>
         <version.org.fusesource.jansi>1.18</version.org.fusesource.jansi>
         <version.org.glassfish.jakarta.json>1.1.6</version.org.glassfish.jakarta.json>
         <version.org.jboss.byteman>4.0.6</version.org.jboss.byteman>
@@ -851,6 +852,31 @@
                 <artifactId>maven-resolver-util</artifactId>
                 <version>${version.org.apache.maven.resolver}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcmail-jdk15on</artifactId>
+                <version>${version.org.bouncycastle}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcpg-jdk15on</artifactId>
+                <version>${version.org.bouncycastle}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcpkix-jdk15on</artifactId>
+                <version>${version.org.bouncycastle}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk15on</artifactId>
+                <version>${version.org.bouncycastle}</version>
+            </dependency>
+
             <!-- This dependency needs to be managed due to the dependency convergence enforcer rule -->
             <dependency>
                 <groupId>org.codehaus.plexus</groupId>
@@ -1102,7 +1128,7 @@
                 <version>${version.org.slf4j}</version>
             </dependency>
             <!-- git persistence -->
-           <dependency>
+            <dependency>
                 <groupId>org.eclipse.jgit</groupId>
                 <artifactId>org.eclipse.jgit</artifactId>
                 <version>${version.org.eclipse.jgit}</version>
@@ -1114,6 +1140,18 @@
                     <exclusion>
                         <groupId>org.apache.httpcomponents</groupId>
                         <artifactId>httpclient</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcpg-jdk15on</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-jdk15on</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcpkix-jdk15on</artifactId>
                     </exclusion>
                 </exclusions>
             </dependency>

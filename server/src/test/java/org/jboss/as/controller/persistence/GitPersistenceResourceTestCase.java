@@ -44,7 +44,7 @@ public class GitPersistenceResourceTestCase extends AbstractGitPersistenceResour
         File gitDir = new File(baseDir, Constants.DOT_GIT);
         if (!gitDir.exists()) {
             try (Git git = Git.init().setDirectory(baseDir).setGitDir(gitDir).call()) {
-                git.commit().setMessage("Repository initialized").call();
+                git.commit().setSign(Boolean.FALSE).setMessage("Repository initialized").call();
             }
         }
         repository = new FileRepositoryBuilder().setWorkTree(baseDir).setGitDir(gitDir).setup().build();

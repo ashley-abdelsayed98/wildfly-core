@@ -66,6 +66,7 @@ public class GitRepository implements Closeable {
     private final Path basePath;
     private final String defaultRemoteRepository;
     private final String branch;
+    private final boolean sign;
 
     public GitRepository(GitRepositoryConfiguration gitConfig)
             throws IllegalArgumentException, IOException, ConfigXMLParseException, GeneralSecurityException {
@@ -73,6 +74,7 @@ public class GitRepository implements Closeable {
         this.branch = gitConfig.getBranch();
         this.ignored = gitConfig.getIgnored();
         this.defaultRemoteRepository = gitConfig.getRepository();
+        this.sign = gitConfig.isSign();
         File baseDir = basePath.toFile();
         File gitDir = new File(baseDir, DOT_GIT);
         if (gitConfig.getAuthenticationConfig() != null) {
@@ -117,7 +119,7 @@ public class GitRepository implements Closeable {
                     }
                     addCommand.call();
                     createGitIgnore(git, basePath);
-                    git.commit().setMessage(ServerLogger.ROOT_LOGGER.repositoryInitialized()).call();
+                    git.commit().setSign(sign).setMessage(ServerLogger.ROOT_LOGGER.repositoryInitialized()).call();
                 } catch (GitAPIException | IOException ex) {
                     throw ServerLogger.ROOT_LOGGER.failedToInitRepository(ex, gitConfig.getRepository());
                 }
@@ -133,7 +135,7 @@ public class GitRepository implements Closeable {
                     git.pull().setRemote(remoteName).setRemoteBranchName(branch).setStrategy(MergeStrategy.RESOLVE).call();
                     checkoutToSelectedBranch(git);
                     if (createGitIgnore(git, basePath)) {
-                        git.commit().setMessage(ServerLogger.ROOT_LOGGER.addingIgnored()).call();
+                        git.commit().setSign(sign).setMessage(ServerLogger.ROOT_LOGGER.addingIgnored()).call();
                     }
                 } catch (GitAPIException ex) {
                     throw ServerLogger.ROOT_LOGGER.failedToInitRepository(ex, gitConfig.getRepository());
@@ -164,6 +166,7 @@ public class GitRepository implements Closeable {
         this.ignored = Collections.emptySet();
         this.defaultRemoteRepository = DEFAULT_REMOTE_NAME;
         this.branch = MASTER;
+        this.sign = false;
         if (repository.isBare()) {
             this.basePath = repository.getDirectory().toPath();
         } else {
@@ -265,6 +268,10 @@ public class GitRepository implements Closeable {
         return branch;
     }
 
+    public boolean isSign() {
+        return sign;
+    }
+
     public final boolean isValidRemoteName(String remoteName) {
         return repository.getRemoteNames().contains(remoteName);
     }
@@ -307,7 +314,7 @@ public class GitRepository implements Closeable {
         try (Git git = getGit()) {
             Status status = git.status().call();
             if (!status.isClean()) {
-                git.commit().setMessage(msg).setAll(true).setNoVerify(true).call();
+                git.commit().setSign(sign).setMessage(msg).setAll(true).setNoVerify(true).call();
             }
         }
     }

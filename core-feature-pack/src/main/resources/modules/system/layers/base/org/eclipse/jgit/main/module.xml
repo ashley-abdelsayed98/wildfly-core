@@ -39,5 +39,6 @@
         <module name="com.jcraft.jzlib"/>
         <module name="com.googlecode.javaewah"/>
         <module name="org.apache.httpcomponents.core"/>
+        <module name="org.bouncycastle" services="import" export="true"/>
     </dependencies>
 </module>

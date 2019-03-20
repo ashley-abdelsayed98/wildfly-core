@@ -51,7 +51,7 @@ public class RemoteGitPersistenceResourceTestCase extends AbstractGitPersistence
         if (!gitDir.exists()) {
             try (Git git = Git.init().setDirectory(baseDir).call()) {
                 git.add().addFilepattern("standard.xml").call();
-                git.commit().setMessage("Repository initialized").call();
+                git.commit().setSign(Boolean.FALSE).setMessage("Repository initialized").call();
             }
         }
         remoteRepository = new FileRepositoryBuilder().setWorkTree(baseDir).setGitDir(gitDir).setup().build();

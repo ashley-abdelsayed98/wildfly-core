@@ -61,7 +61,7 @@ public class GitConfigurationPersistenceResource extends AbstractFilePersistence
     protected void gitCommit(String msg) {
         try (Git git = repository.getGit()) {
             if(!git.status().call().isClean()) {
-                git.commit().setMessage(msg).setAll(true).setNoVerify(true).call();
+                git.commit().setSign(repository.isSign()).setMessage(msg).setAll(true).setNoVerify(true).call();
             }
         } catch (GitAPIException e) {
             MGMT_OP_LOGGER.failedToStoreConfiguration(e, file.getName());

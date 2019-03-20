@@ -36,14 +36,16 @@ public class GitRepositoryConfiguration {
     private final String branch;
     private final URI authenticationConfig;
     private final Set<String> ignored;
+    private final boolean sign;
 
 
-    private GitRepositoryConfiguration(Path basePath, String repository, String branch, URI authenticationConfig, Set<String> ignored) {
+    private GitRepositoryConfiguration(Path basePath, String repository, String branch, URI authenticationConfig, Set<String> ignored, boolean sign) {
         this.basePath = basePath;
         this.repository = repository;
         this.branch = branch;
         this.authenticationConfig = authenticationConfig;
         this.ignored = ignored;
+        this.sign = sign;
     }
 
     public Path getBasePath() {
@@ -66,6 +68,10 @@ public class GitRepositoryConfiguration {
         return ignored;
     }
 
+    public boolean isSign() {
+        return sign;
+    }
+
     public boolean isLocal() {
         return "local".equals(repository);
     }
@@ -77,6 +83,7 @@ public class GitRepositoryConfiguration {
         private String branch = MASTER;
         private URI authenticationConfig;
         private Set<String> ignored;
+        private boolean sign = false;
 
         private Builder() {
         }
@@ -123,6 +130,11 @@ public class GitRepositoryConfiguration {
             return this;
         }
 
+        public Builder setSign(boolean sign) {
+            this.sign = sign;
+            return this;
+        }
+
         public GitRepositoryConfiguration build() {
             if (repository == null || repository.isEmpty()) {
                 if (Files.exists(basePath.resolve(DOT_GIT))) {
@@ -134,7 +146,7 @@ public class GitRepositoryConfiguration {
             if(this.ignored == null) {
                 this.ignored =  Collections.emptySet();
             }
-            return new GitRepositoryConfiguration(basePath, repository, branch, authenticationConfig, ignored);
+            return new GitRepositoryConfiguration(basePath, repository, branch, authenticationConfig, ignored, sign);
         }
     }
     }

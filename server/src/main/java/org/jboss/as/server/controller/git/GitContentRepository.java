@@ -154,7 +154,7 @@ public class GitContentRepository extends ContentRepositoryImpl {
                         }
                         addCommand.call();
                     }
-                    git.commit().setMessage(message).setAmend(true).setAll(true).setNoVerify(true).call();
+                    git.commit().setSign(gitRepository.isSign()).setMessage(message).setAmend(true).setAll(true).setNoVerify(true).call();
                 }
             } catch (RevisionSyntaxException | IOException | GitAPIException ex) {
                 throw new RuntimeException(ex);

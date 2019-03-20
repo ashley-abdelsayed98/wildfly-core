@@ -60,7 +60,7 @@ public class RemoteGitRepositoryTestCase extends AbstractGitRepositoryTestCase {
         if (!gitDir.exists()) {
             try (Git git = Git.init().setDirectory(baseDir).call()) {
                 git.add().addFilepattern("configuration").call();
-                git.commit().setMessage("Repository initialized").call();
+                git.commit().setSign(false).setMessage("Repository initialized").call();
             }
         }
         remoteRepository = new FileRepositoryBuilder().setWorkTree(baseDir).setGitDir(gitDir).setup().build();

@@ -40,6 +40,7 @@
         <artifact name="${org.wildfly.security:wildfly-elytron-asn1}"/>
         <artifact name="${org.wildfly.security:wildfly-elytron-audit}"/>
         <artifact name="${org.wildfly.security:wildfly-elytron-auth}"/>
+        <artifact name="${org.wildfly.security:wildfly-elytron-auth-parsing}"/>
         <artifact name="${org.wildfly.security:wildfly-elytron-auth-server}"/>
         <artifact name="${org.wildfly.security:wildfly-elytron-auth-server-deprecated}"/>
         <artifact name="${org.wildfly.security:wildfly-elytron-auth-server-http}"/>

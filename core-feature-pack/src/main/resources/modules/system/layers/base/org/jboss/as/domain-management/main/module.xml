@@ -42,7 +42,7 @@
         <module name="java.security.sasl"/>
         <module name="java.xml"/>
         <module name="org.wildfly.common" />
-        <module name="org.wildfly.security.elytron-private" />
+        <module name="org.wildfly.security.elytron-private" services="import" />
         <module name="org.jboss.as.controller" />
         <module name="org.jboss.as.core-security"/>
         <!-- for SecurityRealmService ADDITIONAL_PERMISSION -->

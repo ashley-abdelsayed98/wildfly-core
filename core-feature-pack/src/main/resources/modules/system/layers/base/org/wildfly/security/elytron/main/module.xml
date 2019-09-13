@@ -34,6 +34,7 @@
                     <path name="org/wildfly/security/auth/callback"/>
                     <path name="org/wildfly/security/auth/client"/>
                     <path name="org/wildfly/security/auth/jaspi"/>
+                    <path name="org/wildfly/security/auth/parsing"/>
                     <path name="org/wildfly/security/auth/permission"/>
                     <path name="org/wildfly/security/auth/principal"/>
                     <path name="org/wildfly/security/auth/server"/>

@@ -22,26 +22,12 @@
 ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<module xmlns="urn:jboss:module:1.8" name="org.eclipse.jgit">
+<module xmlns="urn:jboss:module:1.8" name="net.i2p.crypto">
     <properties>
         <property name="jboss.api" value="private"/>
     </properties>
 
     <resources>
-        <artifact name="${org.eclipse.jgit:org.eclipse.jgit}"/>
-        <artifact name="${org.eclipse.jgit:org.eclipse.jgit.ssh.apache}"/>
+        <artifact name="${net.i2p.crypto:eddsa}"/>
     </resources>
-
-    <dependencies>
-        <module name="org.slf4j" />
-        <module name="org.slf4j.impl"/>
-        <module name="javax.api"/>
-        <module name="com.jcraft.jsch"/>
-        <module name="com.jcraft.jzlib"/>
-        <module name="org.apache.sshd"/>
-        <module name="net.i2p.crypto"/>
-        <module name="com.googlecode.javaewah"/>
-        <module name="org.apache.httpcomponents.core"/>
-        <module name="org.bouncycastle" services="import" export="true"/>
-    </dependencies>
 </module>

@@ -33,7 +33,11 @@
     </resources>
 
     <dependencies>
+        <module name="java.management" services="import" export="true"/>
+        <module name="java.rmi" services="import" export="true"/>
+        <module name="java.logging" services="import" export="true"/>
         <module name="net.i2p.crypto"/>
+        <module name="org.slf4j" services="import" export="true"/>
         <module name="org.bouncycastle" services="import" export="true"/>
     </dependencies>
 </module>

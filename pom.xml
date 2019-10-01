@@ -1223,11 +1223,6 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.sshd</groupId>
-                <artifactId>sshd-osgi</artifactId>
-                <version>${version.org.apache.sshd}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.sshd</groupId>
                 <artifactId>sshd-sftp</artifactId>
                 <version>${version.org.apache.sshd}</version>
             </dependency>

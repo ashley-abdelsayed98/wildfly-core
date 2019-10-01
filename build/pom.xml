@@ -43,6 +43,12 @@
             <groupId>org.wildfly.core</groupId>
             <artifactId>wildfly-core-galleon-pack</artifactId>
             <type>pom</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.sshd</groupId>
+                    <artifactId>sshd-osgi</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 

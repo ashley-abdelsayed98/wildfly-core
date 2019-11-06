@@ -36,6 +36,7 @@ import java.util.Collections;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Stream;
+
 import org.eclipse.jgit.api.AddCommand;
 import org.eclipse.jgit.api.CheckoutCommand;
 import org.eclipse.jgit.api.CheckoutResult;
@@ -52,10 +53,6 @@ import org.eclipse.jgit.merge.MergeStrategy;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import org.eclipse.jgit.transport.CredentialsProvider;
 import org.eclipse.jgit.transport.SshSessionFactory;
-import org.eclipse.jgit.transport.URIish;
-import org.eclipse.jgit.transport.sshd.IdentityPasswordProvider;
-import org.eclipse.jgit.transport.sshd.KeyPasswordProvider;
-import org.eclipse.jgit.transport.sshd.SshdSessionFactory;
 import org.jboss.as.server.logging.ServerLogger;
 import org.wildfly.client.config.ConfigXMLParseException;
 
@@ -85,17 +82,7 @@ public class GitRepository implements Closeable {
         if (gitConfig.getAuthenticationConfig() != null) {
             CredentialsProvider.setDefault(new ElytronClientCredentialsProvider(gitConfig.getAuthenticationConfig()));
         }
-        SshSessionFactory sshdSessionFactory = new SshdSessionFactory() {
-            @Override
-            protected KeyPasswordProvider createKeyPasswordProvider(CredentialsProvider provider) {
-                return new IdentityPasswordProvider(provider) {
-                    @Override
-                    public char[] getPassphrase(URIish var1, int var2) throws IOException {
-                        return "your_passphrase".toCharArray(); //replace string with your passphrase
-                    }
-                };
-            }
-        };
+        SshSessionFactory sshdSessionFactory = new ElytronClientSshdSessionFactory(gitConfig.getAuthenticationConfig());
         SshSessionFactory.setInstance(sshdSessionFactory);
         if (gitDir.exists()) {
             try {

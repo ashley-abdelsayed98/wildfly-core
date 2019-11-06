@@ -34,7 +34,6 @@
     </resources>
 
     <dependencies>
-        <module name="net.i2p.crypto"/>
         <module name="org.bouncycastle" services="import" export="true"/>
         <module name="org.slf4j"/>
         <module name="org.slf4j.impl"/>

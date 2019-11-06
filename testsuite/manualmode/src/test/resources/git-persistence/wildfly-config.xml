@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <authentication-client xmlns="urn:elytron:client:1.6">
+
+        <credential-stores>
+            <credential-store name="store1">
+                <protection-parameter-credentials>
+                    <clear-password password="Elytron"/>
+                </protection-parameter-credentials>
+                <attributes>
+                    <attribute name="keyStoreType" value="JCEKS"/>
+                    <attribute name="create" value="true"/>
+                    <attribute name="location" value="target/ks-cred-stores/openssh-keys-test.jceks"/>
+                </attributes>
+            </credential-store>
+        </credential-stores>
+
+        <authentication-rules>
+            <rule use-configuration="test-rsa">
+                <match-user name="testRSA"/>
+            </rule>
+            <rule use-configuration="test-pkcs">
+                <match-user name="testPKCS"/>
+            </rule>
+            <rule use-configuration="test-ecdsa">
+                <match-user name="testEC"/>
+            </rule>
+            <rule use-configuration="test-http">
+                <match-user name="httptest"/>
+            </rule>
+            <rule use-configuration="test-cred-store-ref">
+                <match-user name="testCSRef"/>
+            </rule>
+            <rule use-configuration="test-unknown-host">
+                <match-user name="testUnknownHost"/>
+            </rule>
+        </authentication-rules>
+        <authentication-configurations>
+            <configuration name="test-rsa">
+                <credentials>
+                    <key-pair>
+                        <openssh-private-key pem="-----BEGIN OPENSSH PRIVATE KEY-----
+                    b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABCtd4vA1q
+                    mt6lqPBeJWfuxXAAAAEAAAAAEAAAGXAAAAB3NzaC1yc2EAAAADAQABAAABgQC3K7adMLUI
+                    pZbqv12tOy90LMCEay1uwMKIkaTdB9oihdCRw8zP349n9uYzTTAxPMte0boBLMgdqwN+qd
+                    gs5YoKHqlBAuvYUELicmEPFpWB//UTJxpgmObehUIW96pF1aTIpXCQzweIqH2Pe3h7JGtY
+                    bNKgEBZj0YAEGhlricMzjtzwpEw1ncifs3qko7yzZWwLad36LLW1xV6WqD0SiETKStqNX5
+                    GJAIjU74gia9dYAQIx8mh8RU480FUKt+67xE6z8ljK0Y+Pftvq9J4Rgy8+Ex0nbtYRiNDX
+                    CMqLnna9HRoGGC7of/8Xen4FdbKoPvPfyAGr17JXU6VJRNZe8SeK7eRXxIWUXTCDLtEE+D
+                    j3ZRvGEPeHxZqc9UJO596XhhV6X59MKhFxxkVc8swo2zYSoUgWMrx51JlKpiaibiWuAn0r
+                    bus9xMAMExPB/XdCJwgQEsxxrZDsVVVcPbWNgEMAeYYRNBPWfxIzFJB1LcaWkKWmk9reEK
+                    2twaYPezVVtxsAAAWwaklOTJ35hO9jKC1QtosZHM9lDrer0p7ttIMRCMcw4Hub58D7sPWe
+                    cuWFLdNpZpdqw6m+sqqB4iitlrbN+wTK8p4fJGCpe4lZFhzNh/YkEap9uTH2StaAYyv6y2
+                    6UpsXim62AJAD/x34kWfMv2E740ocB1gY/1QtBw5H+bVxSLQTFEDdGpQqvDWltHfzuz47e
+                    bCmCV+Z53lKIbvA/LRLMbeaWUEkj1vA1ehsKSIf6kTNknY3cV+z6+eR6gkM5dXJerYlGNO
+                    tnMbb11sgOLtp3sfEMeanx4gd6L8UrwyGLpSFz9oRFUTel0nJYCRObtjV0kqbuZmt7KPbq
+                    ilDLEyxxOnDFZv4lzg0w9mBbwmJQFf4pivrPusYxMgdDoB69nfuNHm9/jfHUJWJvr1gd9w
+                    EEPKKiKTPCZJL6i19VRyWZa3R+vHhULacCHWyPY5OPoTrWvZpvNXuiaJC1jp0R7ILcClxp
+                    D4DHgcl15GlALeq/Nqit5P0Hla59LdmTGpmyjWGmdpzkXqrvhVk0bArDQfVmRYVOAFr8Ed
+                    q7xCKXqw/SnFQkeWwaTzgIFMDp0TOtylSOj5VxfEL90EicJWlggRBMeus3XIk8k0CoP4DH
+                    CJufxi149fJU8+ugvoz0s4Cx1B7uuLb0cWe2991rxiGX0D3qubRoVPNmcJ+tup1putl6lU
+                    j41Y5HDjUxe2AqeUTnVEBxwmlEIQgSKsaps5dqjBPV+9XJksYqOE8YSXRNjQY4SV+prYYT
+                    jMh0AjXpZw6oOibTVRq2Hjbsc7oPsQn0K3RXWJzqJeIeYsmt78nC472AHwrlBLEbDCOsjV
+                    Q3cmF+1CYZ/ivINtXtnxW8ps9po/2vgOKbFbSNZ5wC9YSMofiBE1m5stkB8P0PAuCh8sat
+                    1SB3JYenXPphTKzhdglsNcAilaVEe8Fzk4VPFtc3AO+8jFi3QXn4p8p/OaWh78zQwlppuu
+                    LIm8Fv5rI771SlVtjWqhEBn0962Lx9CrhQmc/XldjVWbRFvjgbmcfbasnRmK4+p2zY2M1J
+                    RJbc66w6BFQilLmodW2jvI8KPvZIEjvL99FuG6WBGRKByPDzkqcklJAo2UJx8KEXWNdCCJ
+                    D0kGkqDqOwYttp6LDm31J1IpeVea1hLHTmMZj/1IoQYEmUEj0tj5II8ha3MSvmWDVKz/v7
+                    izddB2jIDg8Ek7e3KbTOuHcHgO2mjiaKSbk54DAgc21MaV42fmuVpuxS9B/eQ4HLvXqCHg
+                    I4ne7JVgt9o4zRDGvthfxxkuUEXCLx8dvP9jgq6O+aaV6cUPAIVXG8wKLznwNOS9UC0S+R
+                    yLXN+tJVvgCLNo94qkRhGrwaLpL9mTssnHbML4Pu15cFIkgIRk9L4MdXcIwDKjPHGHc0XD
+                    7H/IvmWtCpRoJ0zc7TCEC1VKya8vNG1eg7HmMt1VLXpqtL5PdQZWSlIwjqQYTyEJAmvSp8
+                    SZPDd3G9PuGoYW4kji+qoB0xFM67k95df9NxprqkC4geJdEFYqS1neTdV51smLz9cYBuDB
+                    +itTGEY0bYj4NE8vci1uTNV06K3KLfCoe8n4pNhsTfrxXsljEyGrRkOCTa29K3TcksMGgD
+                    s7k8b6COBUyP5AkjxVVpYNgJXyHjTrClH2EVw1GUGBGpZeg6Oaf9SSYsyb8jRqlerKA3Qv
+                    CO5Qn86bL6JfUsqpICL8yQUkewLLQcV8VYTsTg/VMetkhYLKSXQxn+pAb4gB/XHPt3VQMA
+                    SgguzOfEid3rTiyxJ5k5DXG9mc+iQYm4pLsTL8KzpNKwgCypoRKCSV0adMGxAFYeGnyN+U
+                    wnSFLh/Wd8trWJTqzNeyAGMYcUJQdgfUQPPlEcj2Q5YkhBU2Ka4DcTh4jIdbwW2/vMX9C/
+                    ZUzWE4+KVy7wXOS/ZJaUKDBk7fNhpiv5NBZ0E7KQ38rdNJMyLU8u38VCAZanyi+VUZBfdg
+                    ==
+                    -----END OPENSSH PRIVATE KEY-----">
+                            <clear-password password="secret"/>
+                        </openssh-private-key>
+                    </key-pair>
+                    <ssh-credential ssh-directory="./src/test/resources/git-persistence/.ssh"/>
+                </credentials>
+            </configuration>
+            <configuration name="test-pkcs">
+                <credentials>
+                    <key-pair>
+                        <private-key-pem>-----BEGIN PRIVATE KEY-----
+                            MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgpEgHUzPQbM80Dya5
+                            Lp2pu+U5AMJFjxzIF3KpDfqaiGmhRANCAASt8FqpkX+tAn6aC386jgI369F0RLlk
+                            Tmp89t0Gt1jlolS9G8X2DDeooHiVpfzXkhzKP9vRJcjQFOMpdWLVCEUv
+                            -----END PRIVATE KEY-----
+                        </private-key-pem>
+                        <public-key-pem>-----BEGIN PUBLIC KEY-----
+                            MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAErfBaqZF/rQJ+mgt/Oo4CN+vRdES5
+                            ZE5qfPbdBrdY5aJUvRvF9gw3qKB4laX815Icyj/b0SXI0BTjKXVi1QhFLw==
+                            -----END PUBLIC KEY-----
+                        </public-key-pem>
+                    </key-pair>
+                    <ssh-credential ssh-directory="./src/test/resources/git-persistence/.ssh"/>
+                </credentials>
+            </configuration>
+            <configuration name="test-ecdsa">
+                <credentials>
+                    <ssh-credential ssh-directory="./src/test/resources/git-persistence/.ssh" private-key-file="id_ecdsa">
+                        <clear-password password="secret"/>
+                    </ssh-credential>
+                </credentials>
+            </configuration>
+            <configuration name="test-http">
+                <sasl-mechanism-selector selector="BASIC" />
+                <set-user-name name="agitter"/>
+                <credentials>
+                    <clear-password password="letmein"/>
+                </credentials>
+                <set-mechanism-realm name="testRealm" />
+            </configuration>
+            <configuration name="test-cred-store-ref">
+                <credentials>
+                    <credential-store-reference store="store1" alias="RSAKey" clear-text="Elytron"/>
+                    <ssh-credential ssh-directory="./src/test/resources/git-persistence/.ssh"/>
+                </credentials>
+            </configuration>
+            <configuration name="test-unknown-host">
+                <credentials>
+                    <credential-store-reference store="store1" alias="RSAKey" clear-text="Elytron"/>
+                    <ssh-credential ssh-directory="./src/test/resources/git-persistence/.ssh" known-hosts-file="empty_hosts"/>
+                </credentials>
+            </configuration>
+        </authentication-configurations>
+    </authentication-client>
+</configuration>
+

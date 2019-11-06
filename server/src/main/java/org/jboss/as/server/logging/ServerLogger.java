@@ -1342,6 +1342,10 @@ public interface ServerLogger extends BasicLogger {
     @Message(id = 276, value = "There is an error in opening zip file %s")
     StartException errorOpeningZipFile(String filename, @Cause Throwable throwable);
 
+    @LogMessage(level = WARN)
+    @Message(id = 277, value = "Failed to load SSH Credentials %s")
+    void failedToLoadSSHCredentials(@Cause Throwable cause, String message);
+
     ////////////////////////////////////////////////
     //Messages without IDs
 

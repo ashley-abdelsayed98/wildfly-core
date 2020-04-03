@@ -2,17 +2,6 @@
 <licenseSummary>
   <dependencies>
     <dependency>
-      <groupId>ch.qos.cal10n</groupId>
-      <artifactId>cal10n-api</artifactId>
-      <licenses>
-        <license>
-          <name>MIT License</name>
-          <url>http://www.opensource.org/licenses/MIT</url>
-          <distribution>repo</distribution>
-        </license>
-      </licenses>
-    </dependency>
-    <dependency>
       <groupId>com.fasterxml.woodstox</groupId>
       <artifactId>woodstox-core</artifactId>
       <licenses>
@@ -72,13 +61,18 @@
       <artifactId>jakarta.json-api</artifactId>
       <licenses>
         <license>
-          <name>Eclipse Distribution License, Version 1.0</name>
-          <url>http://repository.jboss.org/licenses/edl-1.0.txt</url>
+          <name>Eclipse Public License 2.0</name>
+          <url>http://www.eclipse.org/legal/epl-v20.html</url>
           <distribution>repo</distribution>
         </license>
         <license>
           <name>GNU General Public License, Version 2 with the Classpath Exception</name>
           <url>http://repository.jboss.org/licenses/gpl-2.0-ce.txt</url>
+          <distribution>repo</distribution>
+        </license>
+        <license>
+          <name>Eclipse Distribution License, Version 1.0</name>
+          <url>http://repository.jboss.org/licenses/edl-1.0.txt</url>
           <distribution>repo</distribution>
         </license>
       </licenses>
@@ -134,11 +128,6 @@
         <license>
           <name>Apache License 2.0</name>
           <url>http://www.apache.org/licenses/LICENSE-2.0</url>
-          <distribution>repo</distribution>
-        </license>
-        <license>
-          <name>Creative Commons Attribution 2.5</name>
-          <url>http://creativecommons.org/licenses/by/2.5/legalcode</url>
           <distribution>repo</distribution>
         </license>
       </licenses>
@@ -247,13 +236,18 @@
       <artifactId>jakarta.json</artifactId>
       <licenses>
         <license>
-          <name>Eclipse Distribution License, Version 1.0</name>
-          <url>http://repository.jboss.org/licenses/edl-1.0.txt</url>
+          <name>Eclipse Public License 2.0</name>
+          <url>http://www.eclipse.org/legal/epl-v20.html</url>
           <distribution>repo</distribution>
         </license>
         <license>
           <name>GNU General Public License, Version 2 with the Classpath Exception</name>
           <url>http://repository.jboss.org/licenses/gpl-2.0-ce.txt</url>
+          <distribution>repo</distribution>
+        </license>
+        <license>
+          <name>Eclipse Distribution License, Version 1.0</name>
+          <url>http://repository.jboss.org/licenses/edl-1.0.txt</url>
           <distribution>repo</distribution>
         </license>
       </licenses>
@@ -275,7 +269,7 @@
       <licenses>
         <license>
           <name>GNU Lesser General Public License v2.1 only</name>
-          <url>http://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html</url>
+          <url>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</url>
           <distribution>repo</distribution>
         </license>
         <license>
@@ -302,7 +296,7 @@
       <licenses>
         <license>
           <name>GNU Lesser General Public License v2.1 only</name>
-          <url>http://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html</url>
+          <url>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</url>
           <distribution>repo</distribution>
         </license>
       </licenses>
@@ -428,7 +422,7 @@
       <licenses>
         <license>
           <name>GNU Lesser General Public License v2.1 only</name>
-          <url>http://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html</url>
+          <url>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</url>
           <distribution>repo</distribution>
         </license>
       </licenses>
@@ -460,8 +454,8 @@
       <artifactId>slf4j-jboss-logmanager</artifactId>
       <licenses>
         <license>
-          <name>GNU Lesser General Public License v2.1 only</name>
-          <url>http://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html</url>
+          <name>Apache License 2.0</name>
+          <url>http://www.apache.org/licenses/LICENSE-2.0</url>
           <distribution>repo</distribution>
         </license>
       </licenses>
@@ -472,7 +466,7 @@
       <licenses>
         <license>
           <name>Eclipse Public License 2.0</name>
-          <url>http://www.eclipse.org/legal/epl-2.0</url>
+          <url>http://www.eclipse.org/legal/epl-v20.html</url>
           <distribution>repo</distribution>
         </license>
         <license>
@@ -488,7 +482,7 @@
       <licenses>
         <license>
           <name>Eclipse Public License 2.0</name>
-          <url>http://www.eclipse.org/legal/epl-2.0</url>
+          <url>http://www.eclipse.org/legal/epl-v20.html</url>
           <distribution>repo</distribution>
         </license>
         <license>
@@ -504,7 +498,7 @@
       <licenses>
         <license>
           <name>Eclipse Public License 2.0</name>
-          <url>http://www.eclipse.org/legal/epl-2.0</url>
+          <url>http://www.eclipse.org/legal/epl-v20.html</url>
           <distribution>repo</distribution>
         </license>
         <license>
@@ -520,7 +514,7 @@
       <licenses>
         <license>
           <name>GNU Lesser General Public License v2.1 only</name>
-          <url>http://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html</url>
+          <url>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</url>
           <distribution>repo</distribution>
         </license>
       </licenses>
@@ -531,7 +525,7 @@
       <licenses>
         <license>
           <name>GNU Lesser General Public License v2.1 only</name>
-          <url>http://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html</url>
+          <url>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</url>
           <distribution>repo</distribution>
         </license>
       </licenses>
@@ -583,17 +577,6 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <licenses>
-        <license>
-          <name>MIT License</name>
-          <url>http://www.opensource.org/licenses/MIT</url>
-          <distribution>repo</distribution>
-        </license>
-      </licenses>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-ext</artifactId>
       <licenses>
         <license>
           <name>MIT License</name>

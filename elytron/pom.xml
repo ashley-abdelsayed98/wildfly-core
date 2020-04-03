@@ -23,7 +23,7 @@
     <parent>
         <groupId>org.wildfly.core</groupId>
         <artifactId>wildfly-core-parent</artifactId>
-        <version>11.0.0.Beta8-SNAPSHOT</version>
+        <version>12.0.0.Beta1-SNAPSHOT</version>
     </parent>
 
     <artifactId>wildfly-elytron-integration</artifactId>
@@ -160,6 +160,12 @@
         <dependency>
             <groupId>org.jmockit</groupId>
             <artifactId>jmockit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
             <scope>test</scope>
         </dependency>
 

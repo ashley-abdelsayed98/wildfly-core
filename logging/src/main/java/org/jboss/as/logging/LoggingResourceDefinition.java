@@ -198,7 +198,7 @@ public class LoggingResourceDefinition extends TransformerResourceDefinition {
         switch (modelVersion) {
             case VERSION_1_5_0: {
                 rootResourceBuilder.getAttributeBuilder()
-                        .setDiscard(new DiscardAttributeChecker.DiscardAttributeValueChecker(false, true, USE_DEPLOYMENT_LOGGING_CONFIG.getDefaultValue()), USE_DEPLOYMENT_LOGGING_CONFIG)
+                        .setDiscard(DiscardAttributeChecker.DEFAULT_VALUE, USE_DEPLOYMENT_LOGGING_CONFIG)
                         .addRejectCheck(RejectAttributeChecker.DEFINED, USE_DEPLOYMENT_LOGGING_CONFIG)
                         .end();
                 break;
@@ -212,7 +212,6 @@ public class LoggingResourceDefinition extends TransformerResourceDefinition {
                 RuntimePackageDependency.optional(SLF4J),
                 RuntimePackageDependency.optional(SLF4J_STUB),
                 // The next ones are Loaded by LoggingExtension
-                RuntimePackageDependency.optional("org.slf4j.ext"),
                 RuntimePackageDependency.optional("org.slf4j.impl"));
     }
 
